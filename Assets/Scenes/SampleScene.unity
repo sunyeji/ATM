@@ -3705,6 +3705,8 @@ GameObject:
   - component: {fileID: 1102810812}
   - component: {fileID: 1102810816}
   - component: {fileID: 1102810817}
+  - component: {fileID: 1102810818}
+  - component: {fileID: 1102810819}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3843,6 +3845,38 @@ MonoBehaviour:
   inputDeposit: {fileID: 1817575328}
   inputWithdrawal: {fileID: 979595932}
   PupupError: {fileID: 1961078081}
+--- !u!114 &1102810818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102810811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27cfbbc1f8bc11a46995bdcaee2241c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userData:
+    userName: "\uC120\uC608\uC9C0"
+    coin: 100000
+    money: 50000
+--- !u!114 &1102810819
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102810811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27cfbbc1f8bc11a46995bdcaee2241c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userData:
+    userName: "\uC120\uC608\uC9C0"
+    coin: 100000
+    money: 50000
 --- !u!1 &1116652532
 GameObject:
   m_ObjectHideFlags: 0

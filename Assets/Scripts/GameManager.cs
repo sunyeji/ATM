@@ -1,13 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    
     public static GameManager Instance;
     public UserData userData;
+    public UserManager userManager;
     
     [Header("바뀔 유저 정보")]
     public TextMeshProUGUI userNameText;
@@ -26,7 +29,7 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
+    
     public void Start()
     {
         userData = new UserData("선예지", 50000, 100000);
@@ -40,5 +43,4 @@ public class GameManager : MonoBehaviour
         coinText.text = userData.coin.ToString("N0"); //숫자를 스트링값으로 가져오는것
         moneyText.text = userData.money.ToString("N0");
     }
-    
 }
