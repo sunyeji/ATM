@@ -78,18 +78,19 @@ public class PopupBank : MonoBehaviour
             Debug.Log("잔액이 부족합니다.");
         }
     }
-
-    //int isinputWithdrawal = int.Parse(inputWithdrawal.text);
-    public void CostomDeposit() //입금
+    
+    
+    public void CostomDeposit() //자유입금
     {
-        int money = int.Parse(GameManager.Instance.moneyText.text.Replace(",", ""));
-        int coin = int.Parse(GameManager.Instance.coinText.text.Replace(",", ""));
         int isinputDeposit = int.Parse(inputDeposit.text);
 
-        if (money >= isinputDeposit)
+        if (GameManager.Instance.userData.money >= isinputDeposit)
         {
-            money -= isinputDeposit;
-            coin += isinputDeposit;
+            GameManager.Instance.userData.money -= isinputDeposit;
+            GameManager.Instance.userData.coin += isinputDeposit;
+            Debug.Log("자유입금 되었습니다.");
+            
+            GameManager.Instance.Refresh();
         }
 
         else
@@ -98,6 +99,8 @@ public class PopupBank : MonoBehaviour
             Debug.Log("잔액이 부족합니다.");
         }
     }
+    
+    
     public void WithdrawalAmount(int amount) //출금
     {
         int money = int.Parse(GameManager.Instance.moneyText.text.Replace(",", ""));
@@ -116,6 +119,26 @@ public class PopupBank : MonoBehaviour
         }
         else
         {
+            PupupError.SetActive(true);
+            Debug.Log("잔액이 부족합니다.");
+        }
+    }
+    
+    public void CostomWithdrawal() //자유 출금
+    {
+        int isinputWithdrawal = int.Parse(inputWithdrawal.text);
+        if (GameManager.Instance.userData.coin >= isinputWithdrawal)
+        {
+            GameManager.Instance.userData.money += isinputWithdrawal;
+            GameManager.Instance.userData.coin -= isinputWithdrawal;
+            Debug.Log("자유출금 되었습니다.");
+            
+            GameManager.Instance.Refresh();
+        }
+
+        else
+        {
+            
             PupupError.SetActive(true);
             Debug.Log("잔액이 부족합니다.");
         }
