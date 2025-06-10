@@ -32,8 +32,6 @@ public class GameManager : MonoBehaviour
     
     public void Start()
     {
-        userData = new UserData("선예지", 50000, 100000);
-        
         Refresh();
     }
 

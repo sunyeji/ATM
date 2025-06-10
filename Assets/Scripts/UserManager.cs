@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class UserManager : MonoBehaviour
 {
-    public static UserManager Instance; // ✅ 싱글톤 인스턴스
-
-    public UserData userData = new UserData("선예지", 100000, 50000);
+    public static UserManager Instance;
 
     private void Awake()
     {
@@ -21,26 +19,28 @@ public class UserManager : MonoBehaviour
         {
             Destroy(gameObject); // 이미 있다면 중복 제거
         }
-        
         LoadData();
+        GameManager.Instance.Refresh();
     }
 
     public void SaveData()
     {
-        string json = JsonUtility.ToJson(userData);
-        File.WriteAllText(Application.persistentDataPath + "/UserData.json", json);
+        string json = JsonUtility.ToJson(GameManager.Instance.userData);
+        File.WriteAllText(Directory.GetCurrentDirectory() + "/UserData.json", json);
+        
+        Debug.Log("저장완료");
     }
 
     public void LoadData()
     {
-        string path = Application.persistentDataPath + "/UserData.json";
+        string path = Directory.GetCurrentDirectory() + "/UserData.json";//Application.persistentDataPath
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
-            userData = JsonUtility.FromJson<UserData>(json);
+            GameManager.Instance.userData = JsonUtility.FromJson<UserData>(json);
             
-            Debug.Log("불러오기 성공. 유저 이름: " + userData.userName);
-            Debug.Log("코인: " + userData.coin + ", 통장 잔액: " + userData.money);
+            Debug.Log("불러오기 성공. 유저 이름: " + GameManager.Instance.userData.userName);
+            Debug.Log("통장잔액: " + GameManager.Instance.userData.coin + ", 현금: " + GameManager.Instance.userData.money);
         }
     }
 }

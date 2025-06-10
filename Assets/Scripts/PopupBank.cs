@@ -69,6 +69,7 @@ public class PopupBank : MonoBehaviour
             GameManager.Instance.userData.coin = coin;
             Debug.Log("입금 되었습니다.");
             
+            UserManager.Instance.SaveData();
             GameManager.Instance.Refresh();
         }
         else
@@ -89,6 +90,7 @@ public class PopupBank : MonoBehaviour
             GameManager.Instance.userData.coin += isinputDeposit;
             Debug.Log("자유입금 되었습니다.");
             
+            UserManager.Instance.SaveData();
             GameManager.Instance.Refresh();
         }
 
@@ -114,6 +116,7 @@ public class PopupBank : MonoBehaviour
             GameManager.Instance.userData.money = money;
             Debug.Log("출금 되었습니다.");
             
+            UserManager.Instance.SaveData();
             GameManager.Instance.Refresh();
             
         }
@@ -133,6 +136,7 @@ public class PopupBank : MonoBehaviour
             GameManager.Instance.userData.coin -= isinputWithdrawal;
             Debug.Log("자유출금 되었습니다.");
             
+            UserManager.Instance.SaveData();
             GameManager.Instance.Refresh();
             
         }
