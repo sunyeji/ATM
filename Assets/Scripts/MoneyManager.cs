@@ -7,16 +7,16 @@ public class MoneyManager : MonoBehaviour
    public void DepositAmount(int amount)  //입금
     {
         int money = int.Parse(GameManager.Instance.moneyText.text.Replace(",", ""));  //마지막 문구는 문자열 쉼표제거
-        int coin = int.Parse(GameManager.Instance.coinText.text.Replace(",", ""));
+        int coin = int.Parse(GameManager.Instance.coinText.text.Replace(",", "")); //문자열을 숫자로 바꿔주는 파쓰~
         
-        if (money >= amount) 
+        if (money >= amount) //머니가 어마운트보다 클때
         {
-            money -= amount;
-            coin += amount;
+            money -= amount; //머니에서 어마운트를 빼주고
+            coin += amount; //코인에 어마운트를 더한다
 
 
             GameManager.Instance.userData.money = money;
-            GameManager.Instance.userData.coin = coin;
+            GameManager.Instance.userData.coin = coin; 
             Debug.Log("입금 되었습니다.");
             
             UserManager.Instance.SaveData();

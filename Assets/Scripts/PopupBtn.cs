@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class PopupBtn : MonoBehaviour
 {
-    public static PopupBtn Instance;
+    public static PopupBtn Instance; //싱글톤
     private void Awake()
     {
         if (Instance == null)
@@ -44,27 +44,27 @@ public class PopupBtn : MonoBehaviour
 
     public void OnClickDeposit() //입금버튼을 눌렀을때
     {
-        StartBtnl.SetActive(false);
-        Deposit.SetActive(true);
+        StartBtnl.SetActive(false); //스타트버튼은 사라지고
+        Deposit.SetActive(true); //입금창이 뜬다
     }
 
     public void OnClickWithdrawal() //출금버튼을 눌렀을때
     {
-        StartBtnl.SetActive(false);
-        Withdrawal.SetActive(true);
+        StartBtnl.SetActive(false); //스타트 버튼이 사라지고
+        Withdrawal.SetActive(true); //출금창이 뜬다
     }
 
     public void OnClickBack() //뒤로가기 버튼을 눌렀을때
     {
-        Deposit.SetActive(false);
-        Withdrawal.SetActive(false);
+        Deposit.SetActive(false); //입금창 사라짐
+        Withdrawal.SetActive(false); //출금창 사라짐
         
-        StartBtnl.SetActive(true);
-        UserInfo.SetActive(true);
+        StartBtnl.SetActive(true); //스타트버튼이 생기고
+        UserInfo.SetActive(true); //기본 창이 뜬다.
     }
 
     public void OnClickReback() //잔액부족 뒤로가기 버튼을 눌렀을때
     {
-        PupupError.SetActive(false);
+        PupupError.SetActive(false); //에러창이 꺼진다
     }
 }
