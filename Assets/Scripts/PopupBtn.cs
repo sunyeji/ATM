@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PopupBank : MonoBehaviour
+public class PopupBtn : MonoBehaviour
 {
     public UserData userData;
     
