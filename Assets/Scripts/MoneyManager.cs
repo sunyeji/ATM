@@ -40,6 +40,7 @@ public class MoneyManager : MonoBehaviour
             GameManager.Instance.userData.coin += isinputDeposit;
             Debug.Log("자유입금 되었습니다.");
             
+            PopupBtn.Instance.inputDeposit.text = ""; //텍스트 쓰고 지우는 문구 
             UserManager.Instance.SaveData();
             GameManager.Instance.Refresh();
         }
@@ -86,6 +87,7 @@ public class MoneyManager : MonoBehaviour
             GameManager.Instance.userData.coin -= isinputWithdrawal;
             Debug.Log("자유출금 되었습니다.");
             
+            PopupBtn.Instance.inputWithdrawal.text = ""; //텍스트 쓰고 지우는 문구 
             UserManager.Instance.SaveData();
             GameManager.Instance.Refresh();
             
